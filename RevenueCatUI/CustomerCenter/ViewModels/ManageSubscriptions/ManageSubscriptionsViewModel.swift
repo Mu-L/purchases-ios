@@ -299,6 +299,8 @@ private extension CustomerCenterConfigData.HelpPath.RefundWindowDuration {
         case .forever: return true
         case let .duration(duration):
             return duration.withinDuration(referenceDate: purchaseInformation.latestPurchaseDate, now: now)
+        @unknown default:
+            return true
         }
     }
 }

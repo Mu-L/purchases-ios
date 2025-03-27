@@ -75,6 +75,12 @@ struct RestorePurchasesAlert: ViewModifier {
                     actions: alertActions()
                 )
             )
+            .task {
+                if alertType == .loading {
+                    let newAlertType = await customerCenterViewModel.performRestore()
+                    setAlertType(newAlertType)
+                }
+            }
     }
 
     private func alertActions() -> [AlertOrConfirmationDialog.AlertAction] {

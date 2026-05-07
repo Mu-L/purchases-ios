@@ -89,7 +89,8 @@ struct PaywallsV2View: View {
     ) {
         let uiConfigProvider = UIConfigProvider(
             uiConfig: paywallComponents.uiConfig,
-            failedToLoadFont: failedToLoadFont
+            failedToLoadFont: failedToLoadFont,
+            automaticallyScaleFontSize: paywallComponents.data.automaticallyScaleFontSize
         )
 
         self.paywallComponentsData = paywallComponents.data
